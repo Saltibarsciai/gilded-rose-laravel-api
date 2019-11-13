@@ -3,6 +3,7 @@
 namespace App;
 
 use App\shop\AgedBrie;
+use App\shop\BackstagePasses;
 
 final class GildedRose {
 
@@ -22,6 +23,9 @@ final class GildedRose {
                     case self::AGED_BRIE:
                         (new AgedBrie($item))->updateQuality();
                         break;
+                    case self::BACKSTAGE_PASSES:
+                        (new BackstagePasses($item))->updateQuality();
+                        break;
                     default:
                         break;
                 }
@@ -34,25 +38,9 @@ final class GildedRose {
                         $item->quality = 80;
                     }
                 }
-            } else {
-                if ($item->quality < 50) {
-                    if ($item->name == self::BACKSTAGE_PASSES) {
-                        $item->quality = $item->quality + 1;
-                        if ($item->sell_in < 11) {
-                            if ($item->quality < 50) {
-                                $item->quality = $item->quality + 1;
-                            }
-                        }
-                        if ($item->sell_in < 6) {
-                            if ($item->quality < 50) {
-                                $item->quality = $item->quality + 1;
-                            }
-                        }
-                    }
-                }
             }
 
-            if ($item->name != self::SULFURAS && $item->name != self::AGED_BRIE) {
+            if ($item->name != self::SULFURAS && $item->name != self::AGED_BRIE && $item->name != self::BACKSTAGE_PASSES) {
                 $item->sell_in = $item->sell_in - 1;
             }
 
@@ -64,8 +52,6 @@ final class GildedRose {
                                 $item->quality = $item->quality - 1;
                             }
                         }
-                    } else {
-                        $item->quality = $item->quality - $item->quality;
                     }
                 }
             }
