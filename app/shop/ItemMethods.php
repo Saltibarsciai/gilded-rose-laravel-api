@@ -1,10 +1,6 @@
 <?php
 
-
 namespace App\shop;
-
-
-use phpDocumentor\Reflection\Types\Boolean;
 
 class ItemMethods
 {
@@ -20,18 +16,6 @@ class ItemMethods
     public function addQuality($qualityPoints)
     {
         $this->item->quality += $qualityPoints;
-    }
-    public function setQuality($qualityPoints)
-    {
-        $this->item->quality = $qualityPoints;
-    }
-    public function setQualityToZero()
-    {
-        $this->item->quality = 0;
-    }
-    public function daysLeft($days) :bool
-    {
-        return $this->item->sell_in <= $days;
     }
     public function hasReachedSellDate() :bool
     {
