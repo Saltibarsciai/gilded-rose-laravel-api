@@ -4,7 +4,7 @@
 
 ## About Gilded-Rose refactoring kata API
 
-The original code from Gilden-Rose refactoring kata was implemented in fresh laravel project, then
+The original code from [Gilden-Rose refactoring kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) was implemented in fresh laravel project, then
 refactored and covered with tests. 
 
 Additionally, 2 API endpoints were created in order to review all items and a specific item.
