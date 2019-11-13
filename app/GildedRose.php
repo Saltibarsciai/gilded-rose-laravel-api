@@ -4,6 +4,7 @@ namespace App;
 
 use App\shop\AgedBrie;
 use App\shop\BackstagePasses;
+use App\shop\RandomItem;
 use App\shop\Sulfuras;
 
 final class GildedRose {
@@ -19,43 +20,19 @@ final class GildedRose {
 
     public function updateQuality() {
         foreach ($this->items as $item) {
-            foreach ($this->items as $item) {
-                switch ($item->name){
-                    case self::AGED_BRIE:
-                        (new AgedBrie($item))->updateQuality();
-                        break;
-                    case self::BACKSTAGE_PASSES:
-                        (new BackstagePasses($item))->updateQuality();
-                        break;
-                    case self::SULFURAS:
-                        (new Sulfuras($item))->updateQuality();
-                        break;
-                    default:
-                        break;
-                }
-            }
-            if ($item->name != self::AGED_BRIE and $item->name != self::BACKSTAGE_PASSES) {
-                if ($item->quality > 0) {
-                    if ($item->name != self::SULFURAS) {
-                        $item->quality = $item->quality - 1;
-                    }
-                }
-            }
-
-            if ($item->name != self::SULFURAS && $item->name != self::AGED_BRIE && $item->name != self::BACKSTAGE_PASSES) {
-                $item->sell_in = $item->sell_in - 1;
-            }
-
-            if ($item->sell_in < 0) {
-                if ($item->name != self::AGED_BRIE) {
-                    if ($item->name != self::BACKSTAGE_PASSES) {
-                        if ($item->quality > 0) {
-                            if ($item->name != self::SULFURAS) {
-                                $item->quality = $item->quality - 1;
-                            }
-                        }
-                    }
-                }
+            switch ($item->name){
+                case self::AGED_BRIE:
+                    (new AgedBrie($item))->updateQuality();
+                    break;
+                case self::BACKSTAGE_PASSES:
+                    (new BackstagePasses($item))->updateQuality();
+                    break;
+                case self::SULFURAS:
+                    (new Sulfuras($item))->updateQuality();
+                    break;
+                default:
+                    (new RandomItem($item))->updateQuality();
+                    break;
             }
         }
     }
