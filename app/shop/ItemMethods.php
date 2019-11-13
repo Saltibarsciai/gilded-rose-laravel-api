@@ -18,6 +18,10 @@ class ItemMethods
     {
         $this->item->quality += $qualityPoints;
     }
+    public function setQuality($qualityPoints)
+    {
+        $this->item->quality = $qualityPoints;
+    }
     public function setQualityToZero()
     {
         $this->item->quality = 0;

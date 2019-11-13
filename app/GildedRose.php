@@ -4,6 +4,7 @@ namespace App;
 
 use App\shop\AgedBrie;
 use App\shop\BackstagePasses;
+use App\shop\Sulfuras;
 
 final class GildedRose {
 
@@ -26,6 +27,9 @@ final class GildedRose {
                     case self::BACKSTAGE_PASSES:
                         (new BackstagePasses($item))->updateQuality();
                         break;
+                    case self::SULFURAS:
+                        (new Sulfuras($item))->updateQuality();
+                        break;
                     default:
                         break;
                 }
@@ -34,8 +38,6 @@ final class GildedRose {
                 if ($item->quality > 0) {
                     if ($item->name != self::SULFURAS) {
                         $item->quality = $item->quality - 1;
-                    } else {
-                        $item->quality = 80;
                     }
                 }
             }
