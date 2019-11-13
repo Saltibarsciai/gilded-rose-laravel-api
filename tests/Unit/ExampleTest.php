@@ -12,6 +12,7 @@ class ExampleTest extends TestCase
     private const BACKSTAGE_PASSES = 'Backstage passes to a TAFKAL80ETC concert';
     private const SULFURAS = 'Sulfuras, Hand of Ragnaros';
     private const RANDOM = 'Random item';
+    private const CONJURED = 'Conjured';
 
     public function testAgedBrieIfAddsNormally() {
         $items      = [new Item(self::AGED_BRIE, 10, 1)];
@@ -153,5 +154,33 @@ class ExampleTest extends TestCase
         $gildedRose->updateQuality();
         $this->assertEquals(0, $items[0]->quality);
         $this->assertEquals(-3, $items[0]->sell_in);
+    }
+    public function testConjuredIfAddsTwiceOnSellDate() {
+        $items      = [new Item(self::CONJURED, 0, 6)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals(2, $items[0]->quality);
+        $this->assertEquals(-1, $items[0]->sell_in);
+    }
+    public function testConjuredIfAddsNormally() {
+        $items      = [new Item(self::CONJURED, 1, 5)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals(3, $items[0]->quality);
+        $this->assertEquals(0, $items[0]->sell_in);
+    }
+    public function testConjuredIfQualityIsntBelow0AfterAdd() {
+        $items      = [new Item(self::CONJURED, 1, 1)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals(0, $items[0]->quality);
+        $this->assertEquals(0, $items[0]->sell_in);
+    }
+    public function testConjuredIfAddsTwiceQualityAfterSellDate() {
+        $items      = [new Item(self::CONJURED, -1, 3)];
+        $gildedRose = new GildedRose($items);
+        $gildedRose->updateQuality();
+        $this->assertEquals(0, $items[0]->quality);
+        $this->assertEquals(-2, $items[0]->sell_in);
     }
 }
