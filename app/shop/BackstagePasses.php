@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\shop;
-
 
 use App\UpdateQualityInterface;
 
@@ -25,7 +23,7 @@ class BackstagePasses extends ItemMethods implements UpdateQualityInterface
         if ($this->daysLeft(5)) {
             $this->addQuality(1);
         }
-        if($this->hasReachedSellDate()) {
+        if ($this->hasReachedSellDate()) {
             $this->setQualityToZero();
         }
         $this->addSellIn(-1);

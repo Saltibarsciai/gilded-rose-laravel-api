@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\shop;
 
 class ItemMethods
@@ -11,7 +10,8 @@ class ItemMethods
     {
         $this->item = $item;
     }
-    public function addSellIn($addDays){
+    public function addSellIn($addDays)
+    {
         $this->item->sell_in += $addDays;
     }
     public function addQuality($qualityPoints)
@@ -26,20 +26,19 @@ class ItemMethods
     {
         $this->item->quality = 0;
     }
-    public function daysLeft($days) :bool
+    public function daysLeft($days): bool
     {
         return $this->item->sell_in <= $days;
     }
-    public function hasReachedSellDate() :bool
+    public function hasReachedSellDate(): bool
     {
         return $this->item->sell_in <= 0;
     }
     public function syncWithBoundaries()
     {
-        if($this->item->quality > 50){
+        if ($this->item->quality > 50) {
             $this->item->quality = 50;
-        }
-        elseif($this->item->quality < 0){
+        } elseif ($this->item->quality < 0) {
             $this->item->quality = 0;
         }
     }

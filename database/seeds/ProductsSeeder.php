@@ -22,7 +22,7 @@ class ProductsSeeder extends Seeder
     {
         $faker = Faker::create();
         $items = [];
-        for($i = 0; $i < 20; $i++){
+        for ($i = 0; $i < 20; $i++) {
             $items[] = new Item(
                 $faker->randomElement([
                     self::AGED_BRIE,
@@ -32,13 +32,14 @@ class ProductsSeeder extends Seeder
                     $faker->text(10)
                 ]),
                 $faker->numberBetween(-10, 20),
-                $faker->numberBetween(0, 50));
+                $faker->numberBetween(0, 50)
+            );
         }
 
         $gildedRose = new GildedRose($items);
         $gildedRose->updateQuality();
 
-        foreach ($items as $item){
+        foreach ($items as $item) {
             Product::create([
                 'name' => $item->name,
                 'sell_in' => $item->sell_in,

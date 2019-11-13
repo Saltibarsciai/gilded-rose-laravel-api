@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\shop;
-
 
 use App\UpdateQualityInterface;
 
@@ -19,11 +17,10 @@ class RandomItem extends ItemMethods implements UpdateQualityInterface
     public function updateQuality()
     {
         $this->addQuality(-1);
-        if($this->hasReachedSellDate()) {
+        if ($this->hasReachedSellDate()) {
             $this->addQuality(-1);
         }
         $this->addSellIn(-1);
         $this->syncWithBoundaries();
-
     }
 }

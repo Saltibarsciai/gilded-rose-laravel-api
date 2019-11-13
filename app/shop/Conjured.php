@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\shop;
-
 
 use App\UpdateQualityInterface;
 
@@ -19,7 +17,7 @@ class Conjured extends ItemMethods implements UpdateQualityInterface
     public function updateQuality()
     {
         $this->addQuality(-2);
-        if ($this->hasReachedSellDate()){
+        if ($this->hasReachedSellDate()) {
             $this->addQuality(-2);
         }
         $this->addSellIn(-1);
