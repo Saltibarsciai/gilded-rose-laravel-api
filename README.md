@@ -31,12 +31,6 @@ Create .env file
 cp .env.example .env
 ```
 
-Install php dependencies
-
-```
-composer install
-```
-
 Generate key
 
 ```
@@ -46,7 +40,7 @@ php artisan key:generate
 create database.sqlite (Windows)
 
 ```
-type nul > database/database.sqlite
+echo database/database.sqlite
 ```
 
 create database.sqlite (UNIX)
@@ -54,6 +48,13 @@ create database.sqlite (UNIX)
 ```
 touch database/database.sqlite
 ```
+
+Install php dependencies
+
+```
+composer install
+```
+
 
 Migrate database and seed with random Gilded-Rose shop items
 
