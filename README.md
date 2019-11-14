@@ -16,13 +16,13 @@ Also, in order to make code even more readable, I refactured everything to use P
 Clone repository
 
 ```
-git clone https://github.com/Saltibarsciai/GildedRoseLaravelServiceKata.git
+git clone https://github.com/Saltibarsciai/gilded-rose-laravel-api.git
 ```
 
 Navigate to it
 
 ```
-cd GildedRoseLaravelServiceKata
+cd gilded-rose-laravel-api
 ```
 
 Create .env file
