@@ -6,7 +6,7 @@ use App\GildedRose;
 use App\Item;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class GildedRoseTest extends TestCase
 {
     private const AGED_BRIE = 'Aged Brie';
     private const BACKSTAGE_PASSES = 'Backstage passes to a TAFKAL80ETC concert';

@@ -2,11 +2,11 @@
 
 namespace App;
 
-use App\shop\AgedBrie;
-use App\shop\BackstagePasses;
-use App\shop\Conjured;
-use App\shop\RandomItem;
-use App\shop\Sulfuras;
+use App\Shop\AgedBrie;
+use App\Shop\BackstagePasses;
+use App\Shop\Conjured;
+use App\Shop\RandomItem;
+use App\Shop\Sulfuras;
 
 final class GildedRose
 {
@@ -16,12 +16,19 @@ final class GildedRose
     private const SULFURAS = 'Sulfuras, Hand of Ragnaros';
     private const CONJURED = 'Conjured';
 
-    public function __construct($items)
+    /**
+     * GildedRose constructor.
+     * @param array
+     */
+    public function __construct(array $items)
     {
         $this->items = $items;
     }
 
-    public function updateQuality()
+    /**
+     * Updates quality of given item
+     */
+    public function updateQuality(): void
     {
         foreach ($this->items as $item) {
             switch ($item->name) {

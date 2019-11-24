@@ -11,5 +11,4 @@
 |
 */
 
-Route::get('products', 'ProductController@products');
-Route::get('product/{id}', 'ProductController@product');
+

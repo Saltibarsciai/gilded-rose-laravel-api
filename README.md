@@ -70,13 +70,13 @@ php artisan serve
 
 ## Endpoints
 
-Returns json full of items:
+Returns json of items:
 
-http://localhost:8000/products
+http://localhost:8000/api/v1/items
 
-Returns specific item if you provide item id:
+Returns specific item
 
-http://localhost:8000/product/1/
+http://localhost:8000/api/v1/items/1/
 
 ## Tests
 
